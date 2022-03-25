@@ -1,6 +1,6 @@
-# Federation 2 Readiness
+# Federation Query Plan CLI
 
-Check your federated schema for backward-compatibility with [Federation 2](https://www.apollographql.com/docs/federation/v2) and audit query plans.
+Build a query plan for an operation against an Apollo Federation graph.
 
 **The code in this repository is experimental and has been provided for reference purposes only. Community feedback is welcome but this project may not be supported in the same way that repositories in the official [Apollo GraphQL GitHub organization](https://github.com/apollographql) are. If you need help you can file an issue on this repository, [contact Apollo](https://www.apollographql.com/contact-sales) to talk to an expert, or create a ticket directly in Apollo Studio.**
 

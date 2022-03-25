@@ -1,3 +1,12 @@
+/** Columns of AccountBillingUsageStats. */
+export var AccountBillingUsageStatsColumn;
+(function (AccountBillingUsageStatsColumn) {
+    AccountBillingUsageStatsColumn["OperationCount"] = "OPERATION_COUNT";
+    AccountBillingUsageStatsColumn["OperationCountProvidedExplicitly"] = "OPERATION_COUNT_PROVIDED_EXPLICITLY";
+    AccountBillingUsageStatsColumn["SchemaTag"] = "SCHEMA_TAG";
+    AccountBillingUsageStatsColumn["ServiceId"] = "SERVICE_ID";
+    AccountBillingUsageStatsColumn["Timestamp"] = "TIMESTAMP";
+})(AccountBillingUsageStatsColumn || (AccountBillingUsageStatsColumn = {}));
 /** Columns of AccountEdgeServerInfos. */
 export var AccountEdgeServerInfosColumn;
 (function (AccountEdgeServerInfosColumn) {
@@ -43,8 +52,8 @@ export var AccountFieldUsageColumn;
 (function (AccountFieldUsageColumn) {
     AccountFieldUsageColumn["ClientName"] = "CLIENT_NAME";
     AccountFieldUsageColumn["ClientVersion"] = "CLIENT_VERSION";
+    AccountFieldUsageColumn["EstimatedExecutionCount"] = "ESTIMATED_EXECUTION_COUNT";
     AccountFieldUsageColumn["ExecutionCount"] = "EXECUTION_COUNT";
-    AccountFieldUsageColumn["Field"] = "FIELD";
     AccountFieldUsageColumn["FieldName"] = "FIELD_NAME";
     AccountFieldUsageColumn["ParentType"] = "PARENT_TYPE";
     AccountFieldUsageColumn["QueryId"] = "QUERY_ID";
@@ -62,6 +71,7 @@ export var AccountOperationCheckStatsColumn;
     AccountOperationCheckStatsColumn["ClientName"] = "CLIENT_NAME";
     AccountOperationCheckStatsColumn["ClientVersion"] = "CLIENT_VERSION";
     AccountOperationCheckStatsColumn["QueryId"] = "QUERY_ID";
+    AccountOperationCheckStatsColumn["QueryName"] = "QUERY_NAME";
     AccountOperationCheckStatsColumn["SchemaTag"] = "SCHEMA_TAG";
     AccountOperationCheckStatsColumn["ServiceId"] = "SERVICE_ID";
     AccountOperationCheckStatsColumn["Timestamp"] = "TIMESTAMP";
@@ -140,6 +150,7 @@ export var ActorType;
     ActorType["Graph"] = "GRAPH";
     ActorType["InternalIdentity"] = "INTERNAL_IDENTITY";
     ActorType["Synchronization"] = "SYNCHRONIZATION";
+    ActorType["System"] = "SYSTEM";
     ActorType["User"] = "USER";
 })(ActorType || (ActorType = {}));
 export var AuditStatus;
@@ -180,12 +191,39 @@ export var BillingPlanKind;
     BillingPlanKind["TeamPaid"] = "TEAM_PAID";
     BillingPlanKind["TeamTrial"] = "TEAM_TRIAL";
 })(BillingPlanKind || (BillingPlanKind = {}));
+export var BillingPlanKindV2;
+(function (BillingPlanKindV2) {
+    BillingPlanKindV2["Community"] = "COMMUNITY";
+    BillingPlanKindV2["EnterpriseInternal"] = "ENTERPRISE_INTERNAL";
+    BillingPlanKindV2["EnterprisePaid"] = "ENTERPRISE_PAID";
+    BillingPlanKindV2["EnterprisePilot"] = "ENTERPRISE_PILOT";
+    BillingPlanKindV2["TeamPaid"] = "TEAM_PAID";
+    BillingPlanKindV2["TeamTrial"] = "TEAM_TRIAL";
+    BillingPlanKindV2["Unknown"] = "UNKNOWN";
+})(BillingPlanKindV2 || (BillingPlanKindV2 = {}));
 export var BillingPlanTier;
 (function (BillingPlanTier) {
     BillingPlanTier["Community"] = "COMMUNITY";
     BillingPlanTier["Enterprise"] = "ENTERPRISE";
     BillingPlanTier["Team"] = "TEAM";
 })(BillingPlanTier || (BillingPlanTier = {}));
+export var BillingPlanTierV2;
+(function (BillingPlanTierV2) {
+    BillingPlanTierV2["Community"] = "COMMUNITY";
+    BillingPlanTierV2["Enterprise"] = "ENTERPRISE";
+    BillingPlanTierV2["Team"] = "TEAM";
+    BillingPlanTierV2["Unknown"] = "UNKNOWN";
+})(BillingPlanTierV2 || (BillingPlanTierV2 = {}));
+/** Columns of BillingUsageStats. */
+export var BillingUsageStatsColumn;
+(function (BillingUsageStatsColumn) {
+    BillingUsageStatsColumn["AccountId"] = "ACCOUNT_ID";
+    BillingUsageStatsColumn["OperationCount"] = "OPERATION_COUNT";
+    BillingUsageStatsColumn["OperationCountProvidedExplicitly"] = "OPERATION_COUNT_PROVIDED_EXPLICITLY";
+    BillingUsageStatsColumn["SchemaTag"] = "SCHEMA_TAG";
+    BillingUsageStatsColumn["ServiceId"] = "SERVICE_ID";
+    BillingUsageStatsColumn["Timestamp"] = "TIMESTAMP";
+})(BillingUsageStatsColumn || (BillingUsageStatsColumn = {}));
 export var CacheScope;
 (function (CacheScope) {
     CacheScope["Private"] = "PRIVATE";
@@ -254,16 +292,20 @@ export var ChangeCode;
     ChangeCode["FieldRemoved"] = "FIELD_REMOVED";
     /** Field was removed from the input object. */
     ChangeCode["FieldRemovedFromInputObject"] = "FIELD_REMOVED_FROM_INPUT_OBJECT";
-    /** Non-nullable field was added to the input object. */
+    /** Non-nullable field was added to the input object. (Deprecated.) */
     ChangeCode["NonNullableFieldAddedToInputObject"] = "NON_NULLABLE_FIELD_ADDED_TO_INPUT_OBJECT";
-    /** Nullable field was added to the input type. */
+    /** Nullable field was added to the input type. (Deprecated.) */
     ChangeCode["NullableFieldAddedToInputObject"] = "NULLABLE_FIELD_ADDED_TO_INPUT_OBJECT";
     /** Nullable argument was added to the field. */
     ChangeCode["OptionalArgAdded"] = "OPTIONAL_ARG_ADDED";
+    /** Optional field was added to the input type. */
+    ChangeCode["OptionalFieldAddedToInputObject"] = "OPTIONAL_FIELD_ADDED_TO_INPUT_OBJECT";
     /** Non-nullable argument was added to the field. */
     ChangeCode["RequiredArgAdded"] = "REQUIRED_ARG_ADDED";
     /** Non-nullable argument added to directive. */
     ChangeCode["RequiredDirectiveArgAdded"] = "REQUIRED_DIRECTIVE_ARG_ADDED";
+    /** Required field was added to the input object. */
+    ChangeCode["RequiredFieldAddedToInputObject"] = "REQUIRED_FIELD_ADDED_TO_INPUT_OBJECT";
     /** Type was added to the schema. */
     ChangeCode["TypeAdded"] = "TYPE_ADDED";
     /** Type now implements the interface. */
@@ -330,10 +372,10 @@ export var ComparisonOperator;
 })(ComparisonOperator || (ComparisonOperator = {}));
 export var ContractVariantFailedStep;
 (function (ContractVariantFailedStep) {
+    ContractVariantFailedStep["AddDirectiveDefinitionsIfNotPresent"] = "ADD_DIRECTIVE_DEFINITIONS_IF_NOT_PRESENT";
     ContractVariantFailedStep["DirectiveDefinitionLocationAugmenting"] = "DIRECTIVE_DEFINITION_LOCATION_AUGMENTING";
     ContractVariantFailedStep["EmptyObjectAndInterfaceMasking"] = "EMPTY_OBJECT_AND_INTERFACE_MASKING";
     ContractVariantFailedStep["EmptyUnionMasking"] = "EMPTY_UNION_MASKING";
-    ContractVariantFailedStep["EnsureQueryTypeAccessible"] = "ENSURE_QUERY_TYPE_ACCESSIBLE";
     ContractVariantFailedStep["InputValidation"] = "INPUT_VALIDATION";
     ContractVariantFailedStep["Parsing"] = "PARSING";
     ContractVariantFailedStep["ParsingTagDirectives"] = "PARSING_TAG_DIRECTIVES";
@@ -344,6 +386,7 @@ export var ContractVariantFailedStep;
     ContractVariantFailedStep["ToApiSchema"] = "TO_API_SCHEMA";
     ContractVariantFailedStep["ToFilterSchema"] = "TO_FILTER_SCHEMA";
     ContractVariantFailedStep["Unknown"] = "UNKNOWN";
+    ContractVariantFailedStep["VersionCheck"] = "VERSION_CHECK";
 })(ContractVariantFailedStep || (ContractVariantFailedStep = {}));
 export var DatadogApiRegion;
 (function (DatadogApiRegion) {
@@ -417,8 +460,8 @@ export var FieldUsageColumn;
 (function (FieldUsageColumn) {
     FieldUsageColumn["ClientName"] = "CLIENT_NAME";
     FieldUsageColumn["ClientVersion"] = "CLIENT_VERSION";
+    FieldUsageColumn["EstimatedExecutionCount"] = "ESTIMATED_EXECUTION_COUNT";
     FieldUsageColumn["ExecutionCount"] = "EXECUTION_COUNT";
-    FieldUsageColumn["Field"] = "FIELD";
     FieldUsageColumn["FieldName"] = "FIELD_NAME";
     FieldUsageColumn["ParentType"] = "PARENT_TYPE";
     FieldUsageColumn["QueryId"] = "QUERY_ID";
@@ -528,6 +571,14 @@ export var InvoiceState;
     InvoiceState["PastDue"] = "PAST_DUE";
     InvoiceState["Unknown"] = "UNKNOWN";
 })(InvoiceState || (InvoiceState = {}));
+export var InvoiceStateV2;
+(function (InvoiceStateV2) {
+    InvoiceStateV2["Collected"] = "COLLECTED";
+    InvoiceStateV2["Failed"] = "FAILED";
+    InvoiceStateV2["Open"] = "OPEN";
+    InvoiceStateV2["PastDue"] = "PAST_DUE";
+    InvoiceStateV2["Unknown"] = "UNKNOWN";
+})(InvoiceStateV2 || (InvoiceStateV2 = {}));
 export var LaunchStatus;
 (function (LaunchStatus) {
     LaunchStatus["LaunchCompleted"] = "LAUNCH_COMPLETED";
@@ -547,6 +598,7 @@ export var OperationCheckStatsColumn;
     OperationCheckStatsColumn["ClientName"] = "CLIENT_NAME";
     OperationCheckStatsColumn["ClientVersion"] = "CLIENT_VERSION";
     OperationCheckStatsColumn["QueryId"] = "QUERY_ID";
+    OperationCheckStatsColumn["QueryName"] = "QUERY_NAME";
     OperationCheckStatsColumn["SchemaTag"] = "SCHEMA_TAG";
     OperationCheckStatsColumn["ServiceId"] = "SERVICE_ID";
     OperationCheckStatsColumn["Timestamp"] = "TIMESTAMP";
@@ -655,6 +707,14 @@ export var ResponseHints;
     ResponseHints["Timings"] = "TIMINGS";
     ResponseHints["TraceTimings"] = "TRACE_TIMINGS";
 })(ResponseHints || (ResponseHints = {}));
+/** Columns of ServiceBillingUsageStats. */
+export var ServiceBillingUsageStatsColumn;
+(function (ServiceBillingUsageStatsColumn) {
+    ServiceBillingUsageStatsColumn["OperationCount"] = "OPERATION_COUNT";
+    ServiceBillingUsageStatsColumn["OperationCountProvidedExplicitly"] = "OPERATION_COUNT_PROVIDED_EXPLICITLY";
+    ServiceBillingUsageStatsColumn["SchemaTag"] = "SCHEMA_TAG";
+    ServiceBillingUsageStatsColumn["Timestamp"] = "TIMESTAMP";
+})(ServiceBillingUsageStatsColumn || (ServiceBillingUsageStatsColumn = {}));
 /** Columns of ServiceEdgeServerInfos. */
 export var ServiceEdgeServerInfosColumn;
 (function (ServiceEdgeServerInfosColumn) {
@@ -697,8 +757,8 @@ export var ServiceFieldUsageColumn;
 (function (ServiceFieldUsageColumn) {
     ServiceFieldUsageColumn["ClientName"] = "CLIENT_NAME";
     ServiceFieldUsageColumn["ClientVersion"] = "CLIENT_VERSION";
+    ServiceFieldUsageColumn["EstimatedExecutionCount"] = "ESTIMATED_EXECUTION_COUNT";
     ServiceFieldUsageColumn["ExecutionCount"] = "EXECUTION_COUNT";
-    ServiceFieldUsageColumn["Field"] = "FIELD";
     ServiceFieldUsageColumn["FieldName"] = "FIELD_NAME";
     ServiceFieldUsageColumn["ParentType"] = "PARENT_TYPE";
     ServiceFieldUsageColumn["QueryId"] = "QUERY_ID";
@@ -715,6 +775,7 @@ export var ServiceOperationCheckStatsColumn;
     ServiceOperationCheckStatsColumn["ClientName"] = "CLIENT_NAME";
     ServiceOperationCheckStatsColumn["ClientVersion"] = "CLIENT_VERSION";
     ServiceOperationCheckStatsColumn["QueryId"] = "QUERY_ID";
+    ServiceOperationCheckStatsColumn["QueryName"] = "QUERY_NAME";
     ServiceOperationCheckStatsColumn["SchemaTag"] = "SCHEMA_TAG";
     ServiceOperationCheckStatsColumn["Timestamp"] = "TIMESTAMP";
     ServiceOperationCheckStatsColumn["UncachedRequestsCount"] = "UNCACHED_REQUESTS_COUNT";
@@ -796,6 +857,17 @@ export var SubscriptionState;
     SubscriptionState["Pending"] = "PENDING";
     SubscriptionState["Unknown"] = "UNKNOWN";
 })(SubscriptionState || (SubscriptionState = {}));
+export var SubscriptionStateV2;
+(function (SubscriptionStateV2) {
+    SubscriptionStateV2["Active"] = "ACTIVE";
+    SubscriptionStateV2["Canceled"] = "CANCELED";
+    SubscriptionStateV2["Expired"] = "EXPIRED";
+    SubscriptionStateV2["Future"] = "FUTURE";
+    SubscriptionStateV2["PastDue"] = "PAST_DUE";
+    SubscriptionStateV2["Paused"] = "PAUSED";
+    SubscriptionStateV2["Pending"] = "PENDING";
+    SubscriptionStateV2["Unknown"] = "UNKNOWN";
+})(SubscriptionStateV2 || (SubscriptionStateV2 = {}));
 export var ThemeName;
 (function (ThemeName) {
     ThemeName["Dark"] = "DARK";
@@ -871,6 +943,7 @@ export var UserSegment;
     UserSegment["NotSpecified"] = "NOT_SPECIFIED";
     UserSegment["ProductionGraphs"] = "PRODUCTION_GRAPHS";
     UserSegment["Sandbox"] = "SANDBOX";
+    UserSegment["SandboxOperationCollections"] = "SANDBOX_OPERATION_COLLECTIONS";
     UserSegment["TryTeam"] = "TRY_TEAM";
 })(UserSegment || (UserSegment = {}));
 export var UserType;

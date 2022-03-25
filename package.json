@@ -1,10 +1,10 @@
 {
-  "name": "@apollosolutions/federation-2-readiness",
+  "name": "@apollosolutions/federation-query-plan",
   "version": "1.0.0",
   "main": "src/index.js",
   "bin": "bin/index.js",
-  "repository": "https://github.com/apollosolutions/federation-2-readiness",
-  "author": "lenny@apollographql.com",
+  "repository": "https://github.com/apollosolutions/federation-query-plan",
+  "author": "shane@apollographql.com",
   "license": "MIT",
   "type": "module",
   "engines": {
